@@ -1,0 +1,53 @@
+Grammar {
+    //Simbolos no terminales
+    PROG = BLOCK
+
+    BLOCK = INICIO_PROG |  DECLARACION | MATOPERACION | INICIO_CONDICIONAL | FIN_CONDICIONAL | FIN_PROG
+
+    DECLARACION =   entero identificador asignacion digitos final 
+                  | doble identificador asignacion decimales final
+                  | cadena identificador asignacion palabras final
+                  | caracter identificador asignacion letras final
+                  | booleano identificador asignacion booleanos final   
+
+    INICIO_PROG = inicio aperturallave
+    
+    MATOPERACION = identificador asignacion (identificador | decimales | digitos ) (aritmetica (identificador | decimales | digitos))* final
+    INICIO_CONDICIONAL = condicionales aperturaparentesis LOGOPERACION cierreparentesis aperturallave 
+    FIN_CONDICIONAL = fin condicionales cierrellave
+    LOGOPERACION = (booleanos| identificador | digitos | decimales ) (operador (booleanos| identificador | digitos | decimales))*
+
+    FIN_PROG = fin cierrellave
+
+    // Simbolos terminales
+    digitos = (digit)+
+    decimales =  (digit)* "." (digit)+
+    palabras = "\"" (~"\"" ~"\n" any)* "\""
+    letras = "'" (any) "'"
+    booleanos = "V" | "F"
+
+    entero = "MORADO"
+    booleano = "AZUL"
+    doble = "VERDE"
+    cadena = "NARANJA"
+    caracter = "ROJO"
+
+    condicionales = "MIENTRAS" | "SI"
+    operador = ">=" | "<=" | "==" |">" | "<" | "!="
+    asignacion  = "+=" | "-=" | "*=" | "/=" | "=" | "%=" | "**="
+    aritmetica = "**" | "+" | "-" | "/" | "*" | "%" 
+
+    identificador = "var_" ((letter)+ (digit)+ ~entero ~booleano ~doble ~cadena ~caracter)
+
+    inicio = "INICIO"
+    fin = "FIN"
+    
+    final  = ";"    
+    aperturaparentesis = "("
+    cierreparentesis = ")"
+    aperturallave = "{"
+    cierrellave = "}"
+  
+
+    
+}

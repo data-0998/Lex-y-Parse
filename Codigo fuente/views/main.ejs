@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Semestral</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        #cover {
+        background-color: black;
+        background-size: cover;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        position: relative;
+        }
+
+        #cover-caption {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* solo se usa para superposición de fondo no es necesario para centrar */
+        form:before {
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: none;
+            z-index: -1;
+            border-radius: 10px;
+        }
+        body{
+            background-color: black;
+        }
+        textarea{
+            resize: both;
+        }
+
+    </style>
+</head>
+<body class="">
+    <section >
+        <div >
+
+            <h4 class=" text-center font-weight-bold text-light p-4">Analizador: Léxico y Sintáctico.</h4>
+        </div>
+    </section>
+    <div>
+        <h6 class="text-center text-light font-weight-bold p-4 lead">A continuación, ingrese la expresión a ser evaluada por el analizador:</h6>
+    </div>
+    <section id="cover" class="min-vh-100">
+        <div id="cover-caption">
+            <div class="container text-white">
+                <div class="row text-white justify-content-center">
+                    <div class="mx-auto text-center form p-4">
+                        <div class="px-2">
+                            <form action=""  method="POST">
+                                <div class="form-group justify-content-center">
+                                    <textarea name="content" class="bg-light text-dark " id="content" cols="70" rows="10"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary text-light  btn-lg font-weight-bold">Evaluar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</body>
+</head>
+
+</html>
